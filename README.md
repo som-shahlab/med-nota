@@ -17,20 +17,33 @@ This project investigates whether large language models (LLMs) like **GPT**, **C
 conda env create -f environment.yaml
 conda activate cot-eval
 ```
-### 2. Process the data
+### 2. Configure your API key
+Before running any experiments, add your API key to the config file at:
+
+```bash
+scripts/config.py
+```
+### 3. Process the data
 
 ```bash
 cd scripts/data
 python3 load_data.py
 ```
-### 3. Run the NOTA experiments
+### 4. Run the NOTA experiments
 
 ```bash
 cd ../src
 python3 medqa_nato.py
 ```
-### 4. Analyze the results
+### 5. Analyze the results
 
 ```bash
 python3 nota_accuracy_stats.py
 ```
+
+##  📊 What the Analysis Shows
+- ✅ Accuracy comparisons between regular CoT and NOTA conditions  
+- 📈 Confidence intervals for model performance  
+- 🧪 P-values for statistical significance testing  
+- 🔍 Question-level insights: which questions showed the biggest drops in accuracy  
+
