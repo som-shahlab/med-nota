@@ -26,29 +26,29 @@ import config
 GPT_DEPLOYMENT_NAME = config.DEPLOYMENT_NAME
 GPT_API_VERSION     = config.API_VERSION
 GPT_API_BASE        = config.OPENAI_API_BASE
-GPT_API_KEY         = config.OPENAI_API_KEY
+API_KEY         = config.OPENAI_API_KEY
 
-CLAUDE_API_BASE = "https://apim.stanfordhealthcare.org/Claude35Sonnetv2/awssig4fa"
+CLAUDE_API_BASE = ###
 CLAUDE_MODEL_ID = "anthropic.claude-3-5-sonnet-20241022-v2:0"
-CLAUDE_API_KEY  = GPT_API_KEY  
+CLAUDE_API_KEY  = API_KEY  
 
-GEMINI_API_BASE = "https://apim.stanfordhealthcare.org/gcpgemini/apim-gcp-oauth-fa"
+GEMINI_API_BASE = ###
 GEMINI_MODEL_ID = "gemini-1.5-pro"
-GEMINI_API_KEY  = GPT_API_KEY
+GEMINI_API_KEY  = API_KEY
 
-GEMINI_FLASH_API_BASE = "https://apim.stanfordhealthcare.org/gcp-gem20flash-fa/apim-gcp-gem20flash-fa"
+GEMINI_FLASH_API_BASE = ###
 GEMINI_FLASH_MODEL_ID = "gemini-2.0-flash"
-GEMINI_FLASH_API_KEY = GPT_API_KEY
+GEMINI_FLASH_API_KEY = API_KEY
 
-LLAMA_API_BASE  = "https://apim.stanfordhealthcare.org/llama3370b/v1/chat/completions"
+LLAMA_API_BASE  = ###
 LLAMA_MODEL_ID  = "Llama-3.3-70B-Instruct"
-LLAMA_API_KEY   = GPT_API_KEY
+LLAMA_API_KEY   = API_KEY
 
-O3_MINI_API_BASE = "https://apim.stanfordhealthcare.org/openai-eastus2/deployments/o3-mini/chat/completions?api-version=2024-12-01-preview"
+O3_MINI_API_BASE = ###
 O3_MINI_MODEL    = "o3-mini"
-O3_MINI_API_KEY  = GPT_API_KEY
+O3_MINI_API_KEY  = API_KEY
 
-DEEPSEEK_R1_API_BASE = "https://apim.stanfordhealthcare.org/deepseekr1/v1/chat/completions"
+DEEPSEEK_R1_API_BASE = ###
 DEEPSEEK_R1_MODEL_ID = "deepseek-chat"
 
 INPUT_FILE  = "../../data/medqa_data.csv"
@@ -89,7 +89,7 @@ def call_llm_with_retries(platform, messages=None, prompt_text=None, max_tokens=
                 url = f"{GPT_API_BASE}/deployments/{GPT_DEPLOYMENT_NAME}/chat/completions?api-version={GPT_API_VERSION}"
                 headers = {
                     "Content-Type": "application/json",
-                    "Ocp-Apim-Subscription-Key": GPT_API_KEY,
+                    "Ocp-Apim-Subscription-Key": API_KEY,
                 }
                 data = {
                     "max_tokens": max_tokens,
@@ -248,7 +248,7 @@ def call_llm_with_retries(platform, messages=None, prompt_text=None, max_tokens=
             elif platform.lower() == "deepseek":
                 url = DEEPSEEK_R1_API_BASE
                 headers = {
-                    "Ocp-Apim-Subscription-Key": GPT_API_KEY,  
+                    "Ocp-Apim-Subscription-Key": API_KEY,  
                     "Content-Type": "application/json"
                 }
                 data = {
