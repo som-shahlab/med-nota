@@ -23,6 +23,13 @@ Before running any experiments, add your API key to the config file at:
 ```bash
 scripts/config.py
 ```
+
+Then, add the model endpoints at:
+
+```bash
+scripts/src/medqa_nato.py
+```
+
 ### 3. Process the data
 
 ```bash
